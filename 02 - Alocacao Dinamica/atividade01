@@ -1,0 +1,10 @@
+## Malloc: 
+A função **malloc** aloca um bloco contínuo de memória de tamanho especificado em bytes e retorna um ponteiro para o primeiro byte desse bloco. A memória alocada por malloc não é inicializada, ou seja, ela contém "lixo" (valores indefinidos).
+
+## Calloc: 
+A função **calloc** é semelhante ao malloc, mas tem duas diferenças principais:
+> - Ela aloca memória para múltiplos elementos (ao invés de um único bloco como o malloc).
+> - A memória alocada é automaticamente inicializada com zeros.
+
+## Realloc: 
+A função **realloc** é usada para redimensionar um bloco de memória previamente alocado. Ela ajusta o tamanho da memória alocada, mantendo os dados já existentes no bloco, se possível. Caso o redimensionamento necessite mover o bloco de memória, os dados são copiados para a nova localização.

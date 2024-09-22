@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar C Program",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "main.c",
+                "video.c",
+                "-o",
+                "programa"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compilar o programa em C"
+        }
+    ]
+}
