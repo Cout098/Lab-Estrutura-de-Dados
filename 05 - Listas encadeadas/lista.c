@@ -114,4 +114,6 @@ void removerCidade(tpLista *lista){
 
 void trocarOrdemCidades(tpLista *lista){
     tpItemLista *item1, *item2, *anterior1, *anterior2;
+
+    
 }
