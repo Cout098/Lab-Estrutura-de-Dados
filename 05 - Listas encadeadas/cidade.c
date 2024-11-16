@@ -4,6 +4,7 @@
 
 void criarCidade(tpCidade *cidade){
     prinf("Digite o nome da cidade: ");
+    printf("Digite o nome da cidade: ");
     fflush(stdin);
     gets(cidade->nomeCidade);
 
