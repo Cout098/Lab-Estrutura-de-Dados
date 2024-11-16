@@ -114,6 +114,43 @@ void removerCidade(tpLista *lista){
 
 void trocarOrdemCidades(tpLista *lista){
     tpItemLista *item1, *item2, *anterior1, *anterior2;
+    char nome1[100];
+    char nome2[100];
 
+    printf("Digite a 1 cidade: ");
+    fflush(stdin);
+    gets(nome1);
+
+    printf("Digite a 2 cidade: ");
+    fflush(stdin);
+    gets(nome2);
+
+
+    item1 = retornaItemDaLista(lista, nome1);
+    anterior1 = retornaItemAnterior(lista, nome1);
+
+    item2 = retornaItemDaLista(lista, nome2);
+    anterior2 = retornaItemAnterior(lista, nome2);
+
+    if(item1 == NULL || item2 == NULL){
+       
+        printf("Uma ou as duas cidades nao foram encontradas.\n");
+        return;
+    }
     
+    if (anterior1 != NULL){
+        anterior1->proximo = item2;
+    } else {
+        lista->primeiro = item2;
+    }
+
+    if (anterior2 != NULL){
+        anterior2->proximo = item1;
+    } else {
+        lista->primeiro = item1;
+    }
+    
+    tpItemLista *temp = item1->proximo;
+    item1->proximo = item2->proximo;
+    item2->proximo = temp;
 }
