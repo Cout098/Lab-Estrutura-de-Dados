@@ -39,13 +39,13 @@ tpItemLista *retornaItemDaLista(tpLista *lista, char *nome){
 
     itemLista = NULL;
     itemAtual = lista->primeiro;
-
-    while (itemAtual != NULL && itemAtual->proximo != NULL)
+    
+    for (int i = 0; i < lista->quantidade; i++)
     {
         if(strcmp(itemAtual->cidade->nomeCidade, nome) == 0){
             itemLista = itemAtual;
             break;
-        }
+        } 
         itemAtual = itemAtual->proximo;
     }
     
@@ -65,6 +65,7 @@ tpItemLista *retornaItemAnterior(tpLista *lista, char *nome){
         }
         itemAtual = itemAtual->proximo;
     }
+
     return itemLista;
 }
 
@@ -117,7 +118,6 @@ void removerCidade(tpLista *lista){
     }
 }
 
-<<<<<<< HEAD
 void trocarOrdemCidades(tpLista *lista){
     tpItemLista *item1, *item2, *anterior1, *anterior2;
     char nome1[100];
@@ -137,6 +137,8 @@ void trocarOrdemCidades(tpLista *lista){
 
     item2 = retornaItemDaLista(lista, nome2);
     anterior2 = retornaItemAnterior(lista, nome2);
+
+    printf("passou, %s %s", item1->cidade, item2->cidade);
 
     if(item1 == NULL || item2 == NULL){
        
@@ -159,7 +161,8 @@ void trocarOrdemCidades(tpLista *lista){
     tpItemLista *temp = item1->proximo;
     item1->proximo = item2->proximo;
     item2->proximo = temp;
-=======
+}
+
 tpItemLista *buscaDeCidades(tpLista *lista){
     tpItemLista *item;
     char busca[100];
@@ -173,42 +176,20 @@ tpItemLista *buscaDeCidades(tpLista *lista){
     return item;
 }
 
-void trocarOrdemCidades(tpLista *lista){
-    tpItemLista *item1, *item2, *anterior1, *anterior2, *proximo1, *proximo2;
-    char busca[100];
-
-    printf("passou");
-
-    if (lista->primeiro == NULL)
-    {
-        printf("Roteiro Vazio!\n");
-        return;
-    }
-
-    anterior1 = buscaDeCidades(lista);
-    item1 = anterior1->proximo;
-    proximo1 = item1->proximo;
-
-    anterior2 = buscaDeCidades(lista);
-    item2 = anterior2->proximo;
-    proximo2 = item2->proximo;
-
-    anterior1->proximo = item2;
-    item2->proximo = proximo1;
-
-    anterior2->proximo = item1;
-    item1->proximo = proximo2;
-}
-
 void editarCidade(tpLista *lista){
     tpItemLista *item;
     char busca[100];
 
-    printf("Digite o nome da cidade:");
-    fflush(stdin);
-    gets(busca);
+    do
+    {
+        printf("Digite o nome da cidade:");
+        fflush(stdin);
+        gets(busca);
 
-    item = retornaItemDaLista(lista, busca);
+        item = retornaItemDaLista(lista, busca);
+    } while (item == NULL);
+    
+    printf("O item a ser editado e: %s\n", item->cidade);
 
     printf("Qual o valor da hospedagem?");
     scanf("%f", &item->cidade->valor);
@@ -219,14 +200,13 @@ void imprimirLista(tpLista *lista){
     
     itemAtual = lista->primeiro;
 
-    while (itemAtual != NULL)
+    for (int i = 0; i < lista->quantidade; i++)
     {
-        printf("Cidade %d\n", itemAtual->ordem);
+        printf("\nOrdem %d\n", itemAtual->ordem);
         printf("Cidade: %s\n", itemAtual->cidade->nomeCidade);
         printf("Valor: %.2f\n",itemAtual->cidade->valor);
 
         itemAtual = itemAtual->proximo;
-    }  
-
->>>>>>> a00b402581b1d2f566a80b49cd8880eafc3f554a
+    }
+      
 }
