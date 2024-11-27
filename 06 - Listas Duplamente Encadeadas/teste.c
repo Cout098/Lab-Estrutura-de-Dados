@@ -23,13 +23,24 @@ typedef struct listaDupla
 
 } tipoLista;
 
-void cadastrarEpisodio(tipoEpisodio *episodio){
-    episodio = malloc(sizeof(tipoEpisodio));
+void iniciarLista(tipoLista *lista){
+    lista->primeiro = NULL;
+    lista->ultimo = NULL;
+    lista->quantidade = 0;
+}
+
+void cadastrarEpisodio(tipoLista *lista){
+    tipoItem *novo = malloc(sizeof(tipoItem));
 
     printf("Digite o titulo do ep: ");
     fflush(stdin);
-    gets(episodio->titulo);
-
-    episodio->numeroEpisodio = 
+    gets(novo->episodio.titulo);
 }
 
+
+void removerEpisodio(tipoLista *lista){
+
+}
+
+void exibirSerie(tipoLista *lista){
+}
