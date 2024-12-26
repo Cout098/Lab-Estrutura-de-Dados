@@ -9,7 +9,7 @@ int main(){
     iniciarLista(lista);
     
     do {
-        printf("\n=== Menu ===\n");
+        printf("\n Menu \n");
         printf("1. Inserir cidade\n");
         printf("2. Remover cidade\n");
         printf("3. Trocar cidades\n");

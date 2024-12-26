@@ -3,7 +3,7 @@
 #include <string.h>
 #include "episodio.h"
 
-// Inicializa um episódio com número e título
+
 void inicializarEpisodio(Episodio *episodio, int numero, const char *titulo) {
     episodio->numero = numero;
     episodio->titulo = malloc(strlen(titulo) + 1);
@@ -21,3 +21,6 @@ void liberarEpisodio(Episodio *episodio) {
         episodio->titulo = NULL;
     }
 }
+
+
+
